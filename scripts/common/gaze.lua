@@ -9,8 +9,8 @@ function events.TICK()
 	local vanilla_rot = vanilla_head:getOriginRot()
 	old_head_rot = head_rot
 	old_eye_pos = eye_pos
-	head_rot = vanilla_rot * 0.25
-	eye_pos = (head_rot).yx_:mul(-0.03, 0.03)
+	head_rot = vanilla_rot / 3
+	eye_pos = (head_rot).yx_:mul(-0.02, 0.03)
 	
 	eye_pos.x = math.clamp(eye_pos.x, -0.9, 0.9)
 	eye_pos.y = math.clamp(eye_pos.y, -0.9, 0.9)
@@ -35,7 +35,7 @@ local function copy(part, name)
 	return new
 end
 local skull = copy(head, "skull"):setParentType("SKULL"):setPos(0, -24, 0)
-local skull_eyes = skull.Eyes:setLight(15)
+local skull_eyes = skull.Eyes:setLight(15):setPrimaryRenderType("EMISSIVE_SOLID")
 models:addChild(skull)
 
 local function dir_to_angle(dir)
