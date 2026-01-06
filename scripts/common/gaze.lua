@@ -10,7 +10,7 @@ function events.TICK()
 	old_head_rot = head_rot
 	old_eye_pos = eye_pos
 	head_rot = vanilla_rot * 0.25
-	eye_pos = (head_rot).yx_:mul(-0.04, 0.04)
+	eye_pos = (head_rot).yx_:mul(-0.03, 0.03)
 	
 	eye_pos.x = math.clamp(eye_pos.x, -0.9, 0.9)
 	eye_pos.y = math.clamp(eye_pos.y, -0.9, 0.9)

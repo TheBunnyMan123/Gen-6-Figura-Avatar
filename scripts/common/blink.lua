@@ -8,9 +8,15 @@ function pings.set_focused(value)
 	focused = value
 end
 
+local tick = 0
 function events.TICK()
 	old_scale = new_scale
 	delay = delay - 1
+	tick = tick + 1
+
+	if tick % (20 * 30) == 0 then
+		pings.set_focused(focused)
+	end
 
 	if delay <= 0 or not focused then
 		new_scale = vec(1, 0, 1)
