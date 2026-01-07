@@ -4,5 +4,6 @@
 	"authors": [
 		"TheKillerBunny"
 	],
-	"color": "#1bd96a"
+	"color": "#1bd96a",
+	"autoScripts": [ "load.lua" ]
 }
