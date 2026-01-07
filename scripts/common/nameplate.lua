@@ -6,79 +6,79 @@ local hover = {
 	{
 		text = "",
 		font = "minecraft:default",
-		color = "#00BF56",
+		color = "#A05000",
 	},
 	{
 		text = "---------|  ɪɴꜰᴏ  |---------\n",
 	},
 	{
 		text = "• ᴜꜱᴇʀɴᴀᴍᴇ",
-		color = "#32FF96"
+		color = "#FF8000"
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ᴛʜᴇᴋɪʟʟᴇʀʙᴜɴɴʏ\n",
-		color = "#1de0a8"
+		color = "#FFA000"
 	},
 	{
 		text = "• ᴘʀᴏɴᴏᴜɴꜱ",
-		color = "#32FF96"
+		color = "#FF8000"
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ʜᴇ/ʜɪᴍ\n",
-		color = "#1de0a8"
+		color = "#FFA000"
 	},
 	{
 		text = "• ꜰʟᴀɢ",
-		color = "#32FF96"
+		color = "#FF8000"
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ᴀʀᴏᴀᴄᴇ\n",
-		color = "#1de0a8"
+		color = "#FFA000"
 	},
 	{
 		text = "• ᴛɪᴍᴇ ᴢᴏɴᴇ",
-		color = "#32FF96"
+		color = "#FF8000"
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ᴄᴛ\n\n",
-		color = "#1de0a8"
+		color = "#FFA000"
 	},
 	{
 		text = "------| ꜱᴏᴄɪᴀʟ ᴍᴇᴅɪᴀ |------\n",
 	},
 	{
 		text = "• ᴅɪꜱᴄᴏʀᴅ",
-		color = "#32FF96"
+		color = "#FF8000"
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "@ᴛʜᴇᴋɪʟʟᴇʀʙᴜɴɴʏ\n",
-		color = "#1de0a8"
+		color = "#FFA000"
 	},
 	{
 		text = "• ʙʟᴜᴇꜱᴋʏ",
-		color = "#32FF96"
+		color = "#FF8000"
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "@ᴛᴋʙᴜɴɴʏ.ɴᴇᴛ",
-		color = "#1de0a8"
+		color = "#FFA000"
 	},
 }
 local info = {
@@ -103,7 +103,7 @@ for i = 1, #name do
 		char = name[i],
 		task = holder:newText("task" .. i):setText(toJson {
 			text = name[i],
-			color = "#32FF96"
+			color = "#FF8000"
 		}):setPos(-width, 0):setScale(3/8):setLight(15):setOutline(true),
 		offset = i,
 		prevWidth = width
