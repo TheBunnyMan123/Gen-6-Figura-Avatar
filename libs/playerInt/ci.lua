@@ -6,9 +6,6 @@ lib.ci = {
   CharterIntegration = {}
 }
 lib.ci.MovementAPI.note = "This is for compat with CI"
-avatar:store("MovementAPI",lib.ci.MovementAPI)
-avatar:store("CharterIntegration",lib.ci.CharterIntegration)
-
 
 
 ---@param x Vector3|number
