@@ -114,7 +114,7 @@ local function set_velocity(uuid, vel)
 
 	if viewer:isLoaded() then
 		if viewer:getUUID() == uuid then
-			lift:setVel(vel)
+			lift.setVel(vel)
 		end
 	end
 

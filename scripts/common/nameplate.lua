@@ -2,83 +2,97 @@ nameplate.ENTITY:setVisible(false)
 	:setOutline(true)
 	:setOutlineColor(vectors.hexToRGB("#154020"))
 
+local colors = {
+	"#A05000",
+	"#FF8000",
+	"#FFA000"
+}
+
+if avatar:getUUID() ~= "1dcce150-0064-4905-879c-43ef64dd97d7" then
+	colors = {
+		"#00A0A0",
+		"#00FFFF",
+		"#00CCCC"
+	}
+end
+
 local hover = {
 	{
 		text = "",
 		font = "minecraft:default",
-		color = "#A05000",
+		color = colors[1],
 	},
 	{
 		text = "---------|  ɪɴꜰᴏ  |---------\n",
 	},
 	{
 		text = "• ᴜꜱᴇʀɴᴀᴍᴇ",
-		color = "#FF8000"
+		color = colors[2]
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ᴛʜᴇᴋɪʟʟᴇʀʙᴜɴɴʏ\n",
-		color = "#FFA000"
+		color = colors[3]
 	},
 	{
 		text = "• ᴘʀᴏɴᴏᴜɴꜱ",
-		color = "#FF8000"
+		color = colors[2]
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ʜᴇ/ʜɪᴍ\n",
-		color = "#FFA000"
+		color = colors[3]
 	},
 	{
 		text = "• ꜰʟᴀɢ",
-		color = "#FF8000"
+		color = colors[2]
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ᴀʀᴏᴀᴄᴇ\n",
-		color = "#FFA000"
+		color = colors[3]
 	},
 	{
 		text = "• ᴛɪᴍᴇ ᴢᴏɴᴇ",
-		color = "#FF8000"
+		color = colors[2]
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "ᴄᴛ\n\n",
-		color = "#FFA000"
+		color = colors[3]
 	},
 	{
 		text = "------| ꜱᴏᴄɪᴀʟ ᴍᴇᴅɪᴀ |------\n",
 	},
 	{
 		text = "• ᴅɪꜱᴄᴏʀᴅ",
-		color = "#FF8000"
+		color = colors[2]
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "@ᴛʜᴇᴋɪʟʟᴇʀʙᴜɴɴʏ\n",
-		color = "#FFA000"
+		color = colors[3]
 	},
 	{
 		text = "• ʙʟᴜᴇꜱᴋʏ",
-		color = "#FF8000"
+		color = colors[2]
 	},
 	{
 		text = ": ",
 	},
 	{
 		text = "@ᴛᴋʙᴜɴɴʏ.ɴᴇᴛ",
-		color = "#FFA000"
+		color = colors[3]
 	},
 }
 local info = {
@@ -103,7 +117,7 @@ for i = 1, #name do
 		char = name[i],
 		task = holder:newText("task" .. i):setText(toJson {
 			text = name[i],
-			color = "#FF8000"
+			color = colors[2]
 		}):setPos(-width, 0):setScale(3/8):setLight(15):setOutline(true),
 		offset = i,
 		prevWidth = width
@@ -123,7 +137,7 @@ local json = {}
 for k, v in ipairs(entityTasks) do
 	local text = {
 		text = v.char,
-		color = "#FF8000",
+		color = colors[2],
 		hoverEvent = {
 			action = "show_text",
 			value = hover
@@ -145,7 +159,7 @@ function events.TICK()
 	for k, v in ipairs(entityTasks) do
 		local text = {
 			text = v.char,
-			color = "#FF8000",
+			color = colors[2],
 		}
 		v.task:setText(toJson(text)):setOutlineColor(0.125, 0.0625, 0):setSeeThrough(not player:isSneaking())
 		json[#json + 1] = text
