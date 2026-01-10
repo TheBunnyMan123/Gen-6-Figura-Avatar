@@ -19,6 +19,7 @@ wheel:newAction():setItem("cat_spawn_egg"):setTitle("Reveal the Secret"):setOnTo
 
 local tick = 0
 function events.TICK()
+	tick = tick + 1
 	if tick % (20 * 30) == 0 then
 		pings.screen_up(showing)
 	end
