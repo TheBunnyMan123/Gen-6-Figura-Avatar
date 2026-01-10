@@ -1,6 +1,6 @@
 local vanilla_head = vanilla_model.HEAD
 local head = models.models.model.root.Player.Head
-local eyes = head.Eyes
+local eyes = head.Screen.Eyes
 
 local old_eye_pos, eye_pos= vec(0, 0, 0), vec(0, 0, 0)
 
@@ -31,7 +31,7 @@ local function copy(part, name)
 	return new
 end
 local skull = copy(head, "skull"):setParentType("SKULL"):setPos(0, -24, 0)
-local skull_eyes = skull.Eyes:setLight(15):setPrimaryRenderType("EMISSIVE_SOLID")
+local skull_eyes = skull.Screen.Eyes:setLight(15):setPrimaryRenderType("EMISSIVE_SOLID")
 models:addChild(skull)
 
 local function dir_to_angle(dir)
