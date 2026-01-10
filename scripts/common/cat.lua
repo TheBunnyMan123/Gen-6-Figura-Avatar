@@ -1,5 +1,5 @@
 local head = models.models.model.root.Player.Head
-local sound = sounds["entity.cat.meow"]
+local sound = sounds["entity.cat.ambient"]
 local ent = head:newEntity("cat")
 local last_screen_y, screen_y = 0, 0
 
