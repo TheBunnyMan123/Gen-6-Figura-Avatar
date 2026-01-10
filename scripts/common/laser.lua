@@ -1,5 +1,5 @@
 local pointer_pos, last_pointer_pos = vec(0, 0, 0), vec(0, 0, 0)
-local pointer = models.models.model.root.Head.Laser
+local pointer = models.models.model.root.Player.Head.Laser
 local laser = require("libs.GNamimates.line").new()
 	:setWidth(0.00625)
 	:setColor(1, 0.1, 0.1)

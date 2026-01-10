@@ -1,5 +1,5 @@
 local vanilla_head = vanilla_model.HEAD
-local head = models.models.model.root.Head
+local head = models.models.model.root.Player.Head
 local eyes = head.Eyes
 
 local old_eye_pos, eye_pos= vec(0, 0, 0), vec(0, 0, 0)

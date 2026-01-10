@@ -1,5 +1,5 @@
-local throbber_part = models.models.model.root.Head.Throbber
-local eyes = models.models.model.root.Head.Eyes
+local throbber_part = models.models.model.root.Player.Head.Throbber
+local eyes = models.models.model.root.Player.Head.Eyes
 throbber = {}
 
 local throbbing = 0

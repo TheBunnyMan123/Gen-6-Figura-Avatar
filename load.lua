@@ -9,3 +9,9 @@ for _, v in pairs(listFiles "scripts.common") do
 	require(v)
 end
 
+if host:isHost() then
+	for _, v in pairs(listFiles "scripts.host") do
+		require(v)
+	end
+end
+

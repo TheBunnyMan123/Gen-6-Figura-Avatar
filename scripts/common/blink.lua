@@ -1,4 +1,4 @@
-local eyes = models.models.model.root.Head.Eyes
+local eyes = models.models.model.root.Player.Head.Eyes
 
 local old_scale, new_scale = vec(1, 0, 1), vec(1, 0, 1)
 local delay = 0
