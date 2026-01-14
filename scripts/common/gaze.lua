@@ -33,6 +33,7 @@ end
 local skull = copy(head, "skull"):setParentType("SKULL"):setPos(0, -24, 0)
 local skull_eyes = skull.Screen.Eyes:setLight(15):setPrimaryRenderType("EMISSIVE_SOLID")
 models:addChild(skull)
+skull.Screen.Throbber:remove()
 
 local function dir_to_angle(dir)
 	local yaw = math.atan2(dir.x, dir.z)
