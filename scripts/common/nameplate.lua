@@ -8,7 +8,7 @@ local colors = {
 	"#FFA000"
 }
 
-if avatar:getUUID() == "1dcce150-0064-4905-879c-43ef64dd97d7" then
+if avatar:getUUID() ~= "1dcce150-0064-4905-879c-43ef64dd97d7" then
 	colors = {
 		"#00A0A0",
 		"#00FFFF",

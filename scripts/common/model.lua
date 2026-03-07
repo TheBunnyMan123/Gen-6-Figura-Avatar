@@ -5,7 +5,7 @@ models.models.model.root.Player.Head.Screen.Eyes:setPrimaryRenderType("EMISSIVE"
 models.models.model.root.Player.Head.Screen.Throbber:setColor(1, 0.5, 0)
 	:setPrimaryRenderType("EMISSIVE")
 
-if avatar:getUUID() ~= "1dcce150-0064-4905-879c-43ef64dd97d7" then return end
+if avatar:getUUID() == "1dcce150-0064-4905-879c-43ef64dd97d7" then return end
 
 local tex = textures["textures.skin"]
 tex:fill(2, 3, 1, 4, vec(0, 1, 1))
