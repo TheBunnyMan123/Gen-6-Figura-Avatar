@@ -102,7 +102,7 @@ local info = {
 	{"Time Zone", ":flag_us: CT"}
 }
 
-local nameText = "\xE2\x9C\xA8TheKillerBunny\xE2\x9C\xA8"
+local nameText = "\xE2\x9C\xA8Bunny\xE2\x9C\xA8"
 local name = {}
 
 for char in string.gmatch(nameText, "([%z\1-\127\128-\255][\128-\191]*)") do
@@ -178,6 +178,6 @@ function events.RENDER(delta)
 			math.sin((tick + v.offset - 1) / 4),
 			math.sin((tick + v.offset) / 4),
 			delta
-		)):setVisible(not player:isInvisible() and client.isHudEnabled())
+		)):setVisible(not player:isInvisible() and client.isHudEnabled() and avatar:canEditNameplate())
 	end
 end
