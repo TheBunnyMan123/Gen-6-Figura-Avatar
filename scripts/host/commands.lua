@@ -1,4 +1,4 @@
-local prev_source = {path="",heads={}}
+local prev_source = {path="",heads={},str=""}
 local function get_resource_heads(chest, str, path, type, shulker)
 	local buf, idx, uuid
 	local heads = {}
@@ -7,6 +7,7 @@ local function get_resource_heads(chest, str, path, type, shulker)
 		goto cached
 	else
 		prev_source.path = path
+		prev_source.str = str
 	end
 
 	buf = data:createBuffer()
@@ -135,19 +136,25 @@ commands = {
 		host:sendChatCommand("tp @s 2113 64 225 30 0")
 	end,
 	song = function(full)
-		local path = "songs/" .. full:gsub("!song ",""):gsub(" %d$", "")
-		local shulker = tonumber(full:match("%d$") or "1")
+		local path = "songs/" .. full:gsub("!song ",""):gsub(" %d*$", "")
+		local shulker = tonumber(full:match("%d+$") or "1")
 		if not path then 
 			print(full)
 			return
 		end
-		local buf = data:createBuffer()
-		local rds = file:openReadStream(path)
-		buf:readFromStream(rds)
-		buf:setPosition(0)
-		local str = buf:readByteArray(buf:available())
-		buf:close()
-		rds:close()
+
+		local buf, str
+		if path ~= prev_source.path then
+			buf = data:createBuffer()
+			local rds = file:openReadStream(path)
+			buf:readFromStream(rds)
+			buf:setPosition(0)
+			str = buf:readByteArray(buf:available())
+			buf:close()
+			rds:close()
+		else
+			str = prev_source.str
+		end
 		
 		if shulker == 1 and math.ceil(#str / (20000 * 26)) > 1 then
 			print(tostring(math.ceil(#str / (20000 * 26))) .. " shulkers")
@@ -216,19 +223,25 @@ commands = {
 		end
 	end,
 	midi = function(full)
-		local path = "midis/" .. full:gsub("!midi ",""):gsub(" %d$", "")
-		local shulker = tonumber(full:match("%d$") or "1")
+		local path = "midis/" .. full:gsub("!midi ",""):gsub(" %d*$", "")
+		local shulker = tonumber(full:match("%d+$") or "1")
 		if not path then 
 			print(full)
 			return
 		end
-		local buf = data:createBuffer()
-		local rds = file:openReadStream(path)
-		buf:readFromStream(rds)
-		buf:setPosition(0)
-		local str = buf:readByteArray(buf:available())
-		buf:close()
-		rds:close()
+
+		local buf, str
+		if path ~= prev_source.path then
+			buf = data:createBuffer()
+			local rds = file:openReadStream(path)
+			buf:readFromStream(rds)
+			buf:setPosition(0)
+			str = buf:readByteArray(buf:available())
+			buf:close()
+			rds:close()
+		else
+			str = prev_source.str
+		end
 
 		if shulker == 1 and math.ceil(#str / (20000 * 26)) > 1 then
 			print(tostring(math.ceil(#str / (20000 * 26))) .. " shulkers")
