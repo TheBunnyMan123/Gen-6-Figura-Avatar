@@ -15,7 +15,7 @@
 
 
 function events.CHAT_RECEIVE_MESSAGE(_, j)
-	local json = parseJson(j)
+	local json = {{text=""},parseJson(j)}
 
 	local function replace_link(tbl)
 		for k, v in pairs(tbl) do
@@ -33,6 +33,20 @@ function events.CHAT_RECEIVE_MESSAGE(_, j)
 				then
 
 				tbl[k].text = v.text:match("/([^/]+)%?")
+				tbl[k].color = "aqua"
+				tbl[k].underlined = true
+			elseif (v.text or "") == (v.clickEvent and v.clickEvent.value)
+				and v.text:match("https?://media%.discordapp%.net/attachments")
+				then
+				
+				tbl[k].text = v.text:match("/([^/]+)$")
+				tbl[k].color = "aqua"
+				tbl[k].underlined = true
+			elseif (v.text or "") == (v.click_event and v.click_event.value)
+				and v.text:match("https?://media%.discordapp%.net/attachments")
+				then
+
+				tbl[k].text = v.text:match("/([^/]+)$")
 				tbl[k].color = "aqua"
 				tbl[k].underlined = true
 			else
