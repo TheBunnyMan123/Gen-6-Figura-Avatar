@@ -1,3 +1,4 @@
+#host_only
 -- Copyright 2026 TheKillerBunny
 -- 
 -- Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,6 +19,8 @@ function events.CHAT_RECEIVE_MESSAGE(_, j)
 
 	local function replace_link(tbl)
 		for k, v in pairs(tbl) do
+			if type(v) ~= "table" then goto continue end
+
 			if (v.text or "") == (v.clickEvent and v.clickEvent.value)
 				and v.text:match("https?://cdn%.discordapp%.com/attachments")
 				then
@@ -32,9 +35,11 @@ function events.CHAT_RECEIVE_MESSAGE(_, j)
 				tbl[k].text = v.text:match("/([^/]+)%?")
 				tbl[k].color = "aqua"
 				tbl[k].underlined = true
-			elseif type(v) == "table" then
+			else
 				replace_link(v)
 			end
+
+			::continue::
 		end
 	end
 

@@ -1,3 +1,5 @@
+#host_only
+
 local prev_source = {path="",heads={},str=""}
 local function get_resource_heads(chest, str, path, type, shulker)
 	local buf, idx, uuid
