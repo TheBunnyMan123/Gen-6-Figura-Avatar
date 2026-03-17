@@ -1,4 +1,16 @@
-local m = {}	
+---@class PreprocessUtils
+local m = {}
+
+---@class PreprocessUtils.Config
+---@field optimize boolean
+---@field minify boolean
+---@field strip_host_only boolean
+local conf = config:load("tkb$preprocessorconf") or {}
+conf.optimize = conf.optimize or true
+conf.minify = conf.minify or true
+conf.strip_host_only = conf.strip_host_only or true
+
+m.config = conf
 
 function m.get_flags(script)
 	local flags_line = script:match("^#([^\n]*)") or ""

@@ -1,4 +1,8 @@
 local suc, err = pcall(require, "preprocess")
+if host:isHost() and silly_backports then
+	silly_backports:addScript("preprocess", nil, "NBT")
+	silly_backports:addScript("libs.dumbParser", nil, "NBT")
+end
 
 wheel = action_wheel:newPage()
 action_wheel:setPage(wheel)
@@ -16,6 +20,7 @@ if not file:allowed() then return end
 if not host:isAvatarUploaded() then return end
 
 local pre_utils = require("libs.TheKillerBunny.preprocess_utils")
+if not pre_utils.strip_host_only then return end
 
 local function find_avatar(path)
 	local next = {}
