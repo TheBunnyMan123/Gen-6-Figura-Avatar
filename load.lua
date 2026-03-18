@@ -1,7 +1,6 @@
 local suc, err = pcall(require, "preprocess")
-if host:isHost() and silly_backports then
-	silly_backports:addScript("preprocess", nil, "NBT")
-	silly_backports:addScript("libs.dumbParser", nil, "NBT")
+if not suc then
+	error(err)
 end
 
 wheel = action_wheel:newPage()

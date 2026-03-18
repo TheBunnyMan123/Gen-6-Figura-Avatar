@@ -6,7 +6,7 @@ local m = {}
 ---@field minify boolean
 ---@field strip_host_only boolean
 local conf = config:load("tkb$preprocessorconf") or {}
-conf.optimize = conf.optimize or true
+conf.optimize = conf.optimize or false
 conf.minify = conf.minify or true
 conf.strip_host_only = conf.strip_host_only or true
 
@@ -21,6 +21,10 @@ function m.get_flags(script)
 	end
 
 	return flags
+end
+
+function m.save_conf()
+	config:save("tkb$preprocessorconf", conf)
 end
 
 return m
