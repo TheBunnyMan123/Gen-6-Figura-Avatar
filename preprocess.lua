@@ -1,19 +1,17 @@
+#delete
+
 local pre_utils = require("libs.TheKillerBunny.preprocess_utils")
 local async = require("libs.TheKillerBunny.async")
 
 local scripts = listFiles("", true)
 local conf = pre_utils.config ---@type PreprocessUtils.Config
-
-local remove = {
-	"preprocess",
-	"libs.dumbParser"
-}
+local remove = {}
 
 async.forpairs(scripts, function( _, v)
 	local script = silly_backports:getScript(v)
 	local flags = pre_utils.get_flags(script)
 
-	if conf.strip_host_only and flags.host_only then
+	if flags.host_only or flags.delete then
 		remove[#remove + 1] = v
 		return
 	end
