@@ -16,7 +16,7 @@ if not file:allowed() then return end
 if not host:isAvatarUploaded() then return end
 
 local pre_utils = require("libs.TheKillerBunny.preprocess_utils")
-if not pre_utils.strip_host_only then return end
+if pre_utils.strip_host_only == false then return end
 
 local function find_avatar(path)
 	local next = {}
@@ -64,6 +64,5 @@ local data_avatar = find_avatar(".")
 if not data_avatar then
 	error("Could not find avatar in data dir")
 end
-
 load_scripts(data_avatar .. "/scripts")
 
