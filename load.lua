@@ -1,7 +1,4 @@
 local suc, err = pcall(require, "preprocess")
-if not suc then
-	error(err)
-end
 
 wheel = action_wheel:newPage()
 action_wheel:setPage(wheel)
